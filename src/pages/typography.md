@@ -1,4 +1,9 @@
-# Begin Again Typewriters: Typography
+---
+layout: '../layouts/BaseLayout.astro'
+title: 'Typography'
+---
+
+# Typography Test Page
 
 ## Headings
 
