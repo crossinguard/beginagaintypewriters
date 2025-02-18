@@ -1,6 +1,6 @@
 body {
-    background: var(--color-dark, #f4f0f1);
-    color: var(--color-primary, #333333);
+    background: var(--color-light, #f4f0f1);
+    color: var(--color-dark, #333333);
     font-size: var(--size-step-1);
     font-family: var(--font-base);
     line-height: var(--leading-standard);
@@ -11,6 +11,7 @@ body {
 :is(h1, h2, h3, h4) {
     line-height: var(--leading-fine);
     text-wrap: balance;
+    font-family: var(--font-header);
 }
 
 :is(h1, h2, h3, blockquote) {
