@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "About";
+---
+
+<BaseLayout title={title}>
+  <main>
+    <div class="hero wrapper flow">
+      <h1>About</h1>
+      <hr />
+      <p>Hey, I'm Kevin and I live in a van down by the river. This is a placeholder where I will talk about me and my new business "<span class="bat">Begin Again Typewriters</span>".</p>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+  }
+
+  .hero > h1 {
+    font-size: var(--size-step-4);
+  }
+
+  .bat {
+    font-family: var(--font-header);
+    font-weight: 700;
+  }
+</style>
