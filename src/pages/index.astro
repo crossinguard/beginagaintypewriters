@@ -1,25 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeHero from "../components/hero/HomeHero.astro";
+import { Content as WelcomeContent } from "../components/content/homepage/welcome.md";
+import Construction from "../components/Construction.astro";
 
 const title = "Home";
 ---
 
 <BaseLayout title={title}>
   <main>
+    <HomeHero />
     <div class="hero wrapper flow">
-      <h1>Begin Again Typewriters</h1>
-      <hr />
-      <p>under construction, but for real this time</p>
+      <Construction />
+      <WelcomeContent />
     </div>
   </main>
 </BaseLayout>
-
-<style>
-  .hero {
-    text-align: center;
-  }
-
-  .hero > h1 {
-    font-size: var(--size-step-4);
-  }
-</style>
