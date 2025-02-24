@@ -1,16 +1,69 @@
 ---
+import { Image } from "astro:assets";
+import copyrightImage1 from "./assets/Copy1.png";
+import copyrightImage2 from "./assets/Copy2.png";
+import copyrightImage3 from "./assets/Copy3.png";
+import copyrightImage4 from "./assets/Copy4.png";
+import copyrightImage5 from "./assets/Copy5.png";
+import copyrightImage6 from "./assets/Copy6.png";
+import copyrightImage7 from "./assets/Copy7.png";
+import copyrightImage8 from "./assets/Copy8.png";
+import copyrightImage9 from "./assets/Copy9.png";
+import copyrightImage10 from "./assets/Copy10.png";
+import copyrightImage11 from "./assets/Copy11.png";
+import copyrightImage12 from "./assets/Copy12.png";
+import copyrightImage13 from "./assets/Copy13.png";
+import copyrightImage14 from "./assets/Copy14.png";
+import copyrightImage15 from "./assets/Copy15.png";
+import copyrightImage16 from "./assets/Copy16.png";
+import copyrightImage17 from "./assets/Copy17.png";
+import copyrightImage18 from "./assets/Copy18.png";
+
+const images = [
+  copyrightImage1,
+  copyrightImage2,
+  copyrightImage3,
+  copyrightImage4,
+  copyrightImage5,
+  copyrightImage6,
+  copyrightImage7,
+  copyrightImage8,
+  copyrightImage9,
+  copyrightImage10,
+  copyrightImage11,
+  copyrightImage12,
+  copyrightImage13,
+  copyrightImage14,
+  copyrightImage15,
+  copyrightImage16,
+  copyrightImage17,
+  copyrightImage18,
+];
+
+// select random copyright image for footer during build
+// TODO: randomize on page load instead of build
+const randomIndex = Math.floor(Math.random() * images.length);
+const selectedImage = images[randomIndex];
+
+// alt text for copyright image
 const author = "Kevin Franke";
 const today = new Date();
+const altText = `${author} copyright ${today.getFullYear()}`;
 ---
 
 <footer>
-    <p>{author} &copy; {today.getFullYear()}</p>
+  <Image src={selectedImage} alt={altText} id="copyright-image" />
 </footer>
 
 <style>
-    footer {
-        text-align: center;
-        font-size: var(--size-step-0);
-        padding: var(--space-l);
-    }
+  footer {
+    padding-block: var(--space-xl);
+  }
+
+  #copyright-image {
+    margin-inline: auto;
+    height: 4rem;
+    width: auto;
+    opacity: 0.7;
+  }
 </style>
