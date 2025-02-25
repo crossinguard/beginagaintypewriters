@@ -40,8 +40,7 @@ const images = [
   copyrightImage18,
 ];
 
-// select random copyright image for footer during build
-// TODO: randomize on page load instead of build
+// select random footer copyright image per page during build
 const randomIndex = Math.floor(Math.random() * images.length);
 const selectedImage = images[randomIndex];
 
@@ -58,12 +57,13 @@ const altText = `${author} copyright ${today.getFullYear()}`;
 <style>
   footer {
     padding-block: var(--space-xl);
+    text-align: center;
   }
 
   #copyright-image {
     margin-inline: auto;
     height: 4rem;
     width: auto;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 </style>
