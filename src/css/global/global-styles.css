@@ -28,6 +28,8 @@ h1:not([class]) {
   border-block-end: solid thick var(--color-primary);
   text-align: center;
   margin-block-end: var(--space-m);
+  margin-inline: auto;
+  max-width: fit-content;
 }
 
 h2 {
@@ -37,8 +39,9 @@ h2 {
 
 :is(h3, h4, h5, h6) {
   font-size: var(--size-step-3);
-  border-inline-start: solid var(--space-3xs) var(--color-primary);
-  border-block-end: solid var(--space-3xs) var(--color-primary);
+  border-inline-start: solid var(--space-s) var(--color-secondary);
+  border-radius: 1rem;
+  /* border-block-end: solid var(--space-3xs) var(--color-secondary); */
   /* border-end-start-radius: 1rem; */
   padding-inline-start: var(--space-xs);
   max-width: fit-content;
