@@ -39,17 +39,17 @@ h2 {
 
 :is(h3, h4, h5, h6) {
   font-size: var(--size-step-3);
-  border-inline-start: solid var(--space-s) var(--color-secondary);
-  border-radius: 1rem;
+  /* border-inline-start: solid var(--space-s) var(--color-secondary); */
+  /* border-radius: 1rem 0.25rem; */
   /* border-block-end: solid var(--space-3xs) var(--color-secondary); */
   /* border-end-start-radius: 1rem; */
-  padding-inline-start: var(--space-xs);
-  max-width: fit-content;
+  /* padding-inline-start: var(--space-xs); */
+  /* max-width: fit-content; */
 }
 
 :is(h4, h5, h6) {
   font-size: var(--size-step-2);
-  margin-inline-start: var(--space-xs);
+  /* margin-inline-start: var(--space-xs); */
 }
 
 article {
