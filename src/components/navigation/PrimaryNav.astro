@@ -1,43 +1,57 @@
-<nav class="navbar" aria-label="primary">
-  <ul role="list" class="navlinks cluster wrapper">
-    {
-      [
-        { name: "Home", url: "/" },
-        { name: "About", url: "/about" },
-        { name: "Typography", url: "/typography" },
-      ].map(({ name, url }) => (
-        <li>
-          <a
-            aria-current={Astro.url.pathname === url ? "page" : undefined}
-            class:list={[
-              "link",
-              {
-                active:
-                  Astro.url.pathname === url ||
-                  (url !== "/" && Astro.url.pathname.startsWith(url)),
-              },
-            ]}
-            href={url}
-          >
-            {name}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<nav aria-label="primary">
+  <div class="wrapper repel">
+    <a href="/" class="bat">Begin Again Typewriters</a>
+    <ul class="cluster" role="list">
+      {
+        [
+          { name: "About", url: "/about" },
+          { name: "Projects", url: "/projects" },
+        ].map(({ name, url }) => (
+          <li>
+            <a
+              aria-current={Astro.url.pathname === url ? "page" : undefined}
+              class:list={[
+                "link",
+                {
+                  active:
+                    Astro.url.pathname === url ||
+                    (url !== "/" && Astro.url.pathname.startsWith(url)),
+                },
+              ]}
+              href={url}
+            >
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </nav>
 
 <style>
+  nav {
+    font-family: "Senatorium Sm3", monospace;
+    padding-block: var(--space-s);
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+  }
   a {
     text-decoration: none;
+    border-block-end: 0.25rem solid transparent;
   }
-
   a:hover {
-    border-block-end: 4px solid var(--color-secondary);
+    text-decoration: none;
+    border-block-end: 0.25rem solid var(--color-primary);
     opacity: 0.9;
   }
 
   .active {
-    border-block-end: 4px solid var(--color-primary);
+    border-block-end: 0.25rem solid var(--color-primary);
   }
 </style>

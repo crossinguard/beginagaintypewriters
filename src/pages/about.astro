@@ -1,14 +1,15 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { Content as AboutContent } from '../components/content/about/about.md';
+import Layout from "../layouts/Layout.astro";
+import { getEntry, render } from "astro:content";
 
-const title = "About";
+const entry = await getEntry("pages", "about");
+if (!entry) {
+    // Handle Error, for example:
+    throw new Error("Could not find page content");
+}
+const { Content, headings } = await render(entry);
 ---
 
-<BaseLayout title={title}>
-  <main>
-    <div class="wrapper flow">
-      <AboutContent />
-    </div>
-  </main>
-</BaseLayout>
+<Layout title={entry.data.title}>
+    <Content />
+</Layout>

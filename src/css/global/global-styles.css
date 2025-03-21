@@ -1,92 +1,33 @@
+/* 
+  Global styles 
+
+  Low-specificity, global styles that apply to the whole 
+  project: https://cube.fyi/css.html
+*/
 body {
-  background: var(--color-light, #f4f0f1);
-  color: var(--color-dark, #333333);
-  font-size: var(--size-step-1);
+  background: var(--color-light);
+  color: var(--color-dark);
+  font-size: var(--size-step-0);
   font-family: var(--font-base);
   line-height: var(--leading-standard);
-  font-size-adjust: from-font;
   margin: 0;
 }
 
-:is(h1, h2, h3, h4) {
-  line-height: var(--leading-fine);
-  text-wrap: balance;
-  font-family: var(--font-header);
-}
-
-:is(h1, h2, h3) {
-  --flow-space: 1.5em;
-}
-
-:is(h1, h2, h3) + * {
-  --flow-space: 0.5em;
-}
-
-h1:not([class]) {
+h1 {
+  font-family: 'Senatorium Sm3', monospace;
   font-size: var(--size-step-5);
-  /* text-decoration: underline; */
-  border-block-end: solid thick var(--color-primary);
-  text-align: center;
-  margin-block-end: var(--space-m);
-  margin-inline: auto;
-  max-width: fit-content;
 }
 
-h2 {
-  font-size: var(--size-step-4);
-  /* max-width: 35ch; */
-}
-
-:is(h3, h4, h5, h6) {
-  font-size: var(--size-step-3);
-  /* border-inline-start: solid var(--space-s) var(--color-secondary); */
-  /* border-radius: 1rem 0.25rem; */
-  /* border-block-end: solid var(--space-3xs) var(--color-secondary); */
-  /* border-end-start-radius: 1rem; */
-  /* padding-inline-start: var(--space-xs); */
-  /* max-width: fit-content; */
-}
-
-:is(h4, h5, h6) {
-  font-size: var(--size-step-2);
-  /* margin-inline-start: var(--space-xs); */
-}
-
-article {
-  /* max-width: 65ch; */
-  margin-inline: auto;
-}
-
-blockquote {
-  --flow-space: 1.5em;
-  /* max-width: 50ch; */
-}
 
 a {
-  color: currentColor;
+  color: var(--color-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
   text-decoration-color: var(--color-primary);
-  text-decoration-thickness: 0.3ex;
-  text-underline-offset: 0.3ex;
 }
 
-ul:not([class]) {
-  padding-inline-start: 1.7ch;
-  list-style-type: disc;
-}
-
-ul:not([class]) > li {
-  padding-inline-start: var(--space-xs);
-}
-
-:is(ol, ul):not([class]) li + * {
-  margin-block-start: var(--flow-space, var(--space-xs));
-}
-
-ul ::marker {
-  font-size: 0.8lh;
-}
-
-ol ::marker {
-  font-size: 1em;
-  font-weight: var(--font-bold);
+a:hover,
+a:focus {
+  color: var(--color-primary);
+  text-decoration: underline;
 }
