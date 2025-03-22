@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+
+const title = "Projects";
+const projects = await getCollection("projects", ({ data }) => {
+    return data.isDraft !== true;
+});
+---
+
+<Layout title={title}>
+    <h2>Featured Projects</h2>
+    <p>placeholder</p>
+    <h2>All Projects</h2>
+    <ul class="grid">
+        {
+            projects.map((project) => (
+                <li>
+                    <a href={`/projects/${project.id}`}>
+                        <h3>{project.data.title}</h3>
+                        <p>{project.data.description}</p>
+                        <p>{project.data.tags}</p>
+                        <p>
+                            <em>
+                                {project.data.pubDate.toLocaleDateString(
+                                    "en-US",
+                                    {
+                                        month: "long",
+                                        day: "numeric",
+                                        year: "numeric",
+                                    },
+                                )}
+                            </em>
+                        </p>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>
+
+<style>
+    ul {
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+</style>

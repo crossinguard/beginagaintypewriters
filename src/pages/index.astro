@@ -1,16 +1,17 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Layout from "../layouts/Layout.astro";
 import HomeHero from "../components/hero/HomeHero.astro";
-import { Content as WelcomeContent } from "../components/content/homepage/welcome.md";
+import { getEntry, render } from "astro:content";
 
-const title = "Home";
+const entry = await getEntry("pages", "home");
+if (!entry) {
+	// Handle Error, for example:
+	throw new Error("Could not find page content");
+}
+const { Content, headings } = await render(entry);
 ---
 
-<BaseLayout title={title}>
-  <main>
-    <HomeHero />
-    <div class="hero wrapper flow">
-      <WelcomeContent />
-    </div>
-  </main>
-</BaseLayout>
+<Layout title={entry.data.title}>
+	<HomeHero />
+	<Content />
+</Layout>

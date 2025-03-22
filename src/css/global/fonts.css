@@ -1,1 +1,8 @@
-/* placeholder */
+@font-face {
+    font-family: 'Senatorium Sm3';
+    src: url('/fonts/SenatoriumSm3-Regular.woff2') format('woff2'),
+        url('/fonts/SenatoriumSm3-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
