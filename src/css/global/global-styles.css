@@ -14,7 +14,7 @@ body {
 }
 
 h1 {
-  font-family: 'Senatorium Sm3', monospace;
+  font-family: var(--font-typewriter);
   font-size: var(--size-step-5);
 }
 
