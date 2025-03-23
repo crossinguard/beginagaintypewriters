@@ -34,7 +34,7 @@ export default defineConfig({
         path: "src/content/pages",
         defaultItem: () => {
           return {
-            author: 'Brett Egbert',
+            author: 'Kevin Franke',
           }
         },
         fields: [
@@ -65,7 +65,7 @@ export default defineConfig({
         path: "src/content/articles",
         defaultItem: () => {
           return {
-            author: 'Brett Egbert',
+            author: 'Kevin Franke',
           }
         },
         fields: [
@@ -128,7 +128,7 @@ export default defineConfig({
         path: "src/content/projects",
         defaultItem: () => {
           return {
-            author: 'Brett Egbert',
+            author: 'Kevin Franke',
           }
         },
         fields: [
