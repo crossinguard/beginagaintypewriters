@@ -10,9 +10,10 @@ const articles = await getCollection("articles");
 
 // define page metadata
 const title = "Articles";
+const description = "A collection of articles";
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
     <h1>{title}</h1>
     <ul class="grid">
         {

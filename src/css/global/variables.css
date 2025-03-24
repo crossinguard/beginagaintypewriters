@@ -1,5 +1,5 @@
 :root {
-  /* COLORS - needs updated*/
+  /* COLORS */
   --color-dark: #212529;
   --color-darkish: #495057;
   --color-light: #efefef;
@@ -11,7 +11,6 @@
   --font-base: "Source Code Pro", sans-serif;
   --font-header: "Cutive Mono", serif;
   --font-typewriter: "Senatorium Sm3", monospace;
-  --font-test: monospace, Times, serif;
 
   /* GENERAL - needs validate */
   --gutter: var(--space-m-l);

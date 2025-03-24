@@ -19,9 +19,10 @@ const featuredProjects = await getCollection("projects", ({ data }) => {
 
 // define page metadata
 const title = "Projects";
+const description = "A collection of projects";
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
     <h1>{title}</h1>
     <h2>Featured Projects</h2>
     <ul class="grid">
