@@ -66,6 +66,7 @@ export default defineConfig({
         defaultItem: () => {
           return {
             author: 'Kevin Franke',
+            isDraft: false,
           }
         },
         fields: [
@@ -129,12 +130,19 @@ export default defineConfig({
         defaultItem: () => {
           return {
             author: 'Kevin Franke',
+            isDraft: false,
+            isFeatured: false,
           }
         },
         fields: [
           {
             label: 'Draft',
             name: 'isDraft',
+            type: 'boolean',
+          },
+          {
+            label: 'Featured',
+            name: 'isFeatured',
             type: 'boolean',
           },
           {

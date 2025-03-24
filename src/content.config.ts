@@ -29,6 +29,7 @@ const projects = defineCollection({
     loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
     schema: z.object({
         isDraft: z.boolean().default(false),
+        isFeatured: z.boolean().default(false),
         title: z.string(),
         description: z.string(),
         image: z.string().nullish(),

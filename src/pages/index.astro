@@ -1,6 +1,9 @@
 ---
+// import base layout and hero component
 import Layout from "../layouts/Layout.astro";
 import HomeHero from "../components/hero/HomeHero.astro";
+
+// import page content and metadata from 'src/content/pages'
 import { getEntry, render } from "astro:content";
 
 const entry = await getEntry("pages", "home");

@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 // import all content from articles content collection
 // edit articles at 'src/content/articles'
-// edit articles schema at ''
+// edit articles schema at 'tina/config.ts' and 'src/content.config.ts'
 import { getCollection } from "astro:content";
 const articles = await getCollection("articles");
 
@@ -14,11 +14,7 @@ const title = "Articles";
 
 <Layout title={title}>
     <h1>{title}</h1>
-    <h2>Featured Articles</h2>
-    <p>placeholder</p>
-    <h2>All Articles</h2>
     <ul class="grid">
-        <!--  -->
         {
             articles.map((article) => (
                 <li>

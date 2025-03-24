@@ -1,8 +1,11 @@
 ---
+// import base layout
 import Layout from "../../layouts/Layout.astro";
+
+// import all content from projects content collection
 import { getCollection, render } from "astro:content";
 
-// 1. Generate a new path for every collection entry
+// generate a new path for every project
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
     return projects.map((project) => ({
@@ -10,12 +13,13 @@ export async function getStaticPaths() {
         props: { project },
     }));
 }
-// 2. For your template, you can get the entry directly from the prop
+// generate project page from props
 const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
 <Layout title={project.data.title}>
+    <h1>{project.data.title}</h1>
     <a href="/projects" class="back">Back to all projects</a>
     <Content />
 </Layout>

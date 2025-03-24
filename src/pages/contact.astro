@@ -2,7 +2,7 @@
 // import base layout
 import Layout from "../layouts/Layout.astro";
 
-// import all content from 'src/content/articles'
+// import page content and metadata from 'src/content/pages'
 import { getEntry, render } from "astro:content";
 const entry = await getEntry("pages", "contact");
 if (!entry) {
