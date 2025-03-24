@@ -1,0 +1,18 @@
+---
+// import base layout
+import Layout from "../layouts/Layout.astro";
+
+// import all content from 'src/content/articles'
+import { getEntry, render } from "astro:content";
+const entry = await getEntry("pages", "contact");
+if (!entry) {
+    // Handle Error, for example:
+    throw new Error("Could not find page content");
+}
+const { Content, headings } = await render(entry);
+---
+
+<Layout title={entry.data.title}>
+    <h1>{entry.data.title}</h1>
+    <Content />
+</Layout>
