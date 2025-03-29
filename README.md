@@ -2,7 +2,7 @@
 
 This repo houses the website files for [Begin Again Typewriters](https://beginagaintypewriters.com), created using the [Astro web framework](https://astro.build) with a headless content management system through [Tina CMS](https://tina.io). 
 
-The approach used here is based on Andy Bell's [A CSS project boilerplate](https://piccalil.li/blog/a-css-project-boilerplate/) and lessons learned in his course [Complete CSS](https://piccalil.li/complete-css/lessons).
+The approach used here is based on Andy Bell's [A CSS project boilerplate](https://piccalil.li/blog/a-css-project-boilerplate/) and lessons learned in his course [Complete CSS](https://piccalil.li/complete-css/).
 
 ## Commands
 

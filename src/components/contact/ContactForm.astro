@@ -1,0 +1,111 @@
+<div class="contact">
+    <h2>Contact Begin Again Typewriters</h2>
+    <form
+        name="ContactForm"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        id="contact-form"
+        class="contact-form"
+    >
+        <p class="visually-hidden">
+            <label id="contact-form-bot-label"
+                >Don't fill this out if you're human: <input
+                    name="bot-field"
+                    aria-labelledby="contact-form-bot-label"
+                /></label
+            >
+        </p>
+        <p class="form-row">
+            <label
+                id="contact-form-name-label"
+                for="contact-form-name"
+                class="form-label">Name</label
+            >
+            <input
+                type="text"
+                name="name"
+                id="contact-form-name"
+                aria-labelledby="contact-form-name-label"
+                class="form-input"
+                required
+            />
+        </p>
+        <p class="form-row">
+            <label
+                id="contact-form-email-label"
+                for="contact-form-email"
+                class="form-label">Email address</label
+            >
+            <input
+                type="email"
+                name="email"
+                id="contact-form-email"
+                aria-labelledby="contact-form-email-label"
+                class="form-input"
+                required
+            />
+        </p>
+        <p class="form-row">
+            <label
+                id="contact-form-message-label"
+                for="contact-form-message"
+                class="form-label">Message</label
+            >
+            <textarea
+                name="message"
+                id="contact-form-message"
+                aria-labelledby="contact-form-message-label"
+                class="form-textarea"
+                rows="7"
+                required></textarea>
+        </p>
+        <p class="form-row form-submit">
+            <button type="submit" class="button">Send Message</button>
+        </p>
+    </form>
+</div>
+
+<style>
+    .contact {
+        padding-block: var(--space-3xl);
+    }
+    .form-row {
+        margin-bottom: var(--space-m);
+    }
+    .form-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: var(--space-2xs);
+        font-size: var(--size-step-1);
+    }
+
+    .form-input,
+    .form-textarea {
+        width: 100%;
+        padding: var(--space-2xs);
+        border: var(--stroke-solid);
+        border-radius: var(--radius-s);
+        color: var(--color-darkish);
+    }
+
+    .form-textarea {
+        resize: vertical;
+    }
+
+    .button {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+        border: none;
+        padding: var(--space-xs) var(--space-s);
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: var(--radius-s);
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: var(--color-primary);
+    }
+</style>
