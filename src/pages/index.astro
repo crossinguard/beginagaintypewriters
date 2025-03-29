@@ -2,7 +2,6 @@
 // import base layout and components
 import Layout from "../layouts/Layout.astro";
 import HomeHero from "../components/hero/HomeHero.astro";
-import ContactForm from "../components/contact/ContactForm.astro";
 
 // import page content and metadata from 'src/content/pages'
 import { getEntry, render } from "astro:content";
@@ -18,5 +17,4 @@ const { Content, headings } = await render(entry);
 <Layout title={entry.data.title} description={entry.data.description}>
 	<HomeHero />
 	<Content />
-	<ContactForm />
 </Layout>
