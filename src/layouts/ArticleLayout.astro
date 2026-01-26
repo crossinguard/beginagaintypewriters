@@ -1,0 +1,72 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+import SkipLink from "@components/global/SkipLink.astro";
+import FormatDate from "@components/global/FormateDate.astro";
+import { Image } from "astro:assets";
+
+interface Props {
+    article: CollectionEntry<"articles">;
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<BaseLayout title={article.data.title} description={article.data.description}>
+    <main id="main-content" class="wrapper">
+        <SkipLink />
+        <h1>{article.data.title}</h1>
+        <small>
+            {article.data.updatedDate ? "updated" : "published"}
+            <FormatDate
+                date={article.data.updatedDate || article.data.pubDate}
+            />
+        </small>
+        <p class="card__description">{article.data.description}</p>
+        <!-- {
+            article.data.tags.length > 0 && (
+                <ul class="card__tags">
+                    {article.data.tags.map((tag) => (
+                        <li class="card__tag">#{tag}</li>
+                    ))}
+                </ul>
+            )
+        } -->
+        <hr />
+        <div class="card__media">
+            {
+                article.data.cover && (
+                    <Image
+                        src={article.data.cover}
+                        alt={article.data.coverAlt}
+                        class="card__image"
+                        height={360}
+                        width={640}
+                    />
+                )
+            }
+        </div>
+        <Content />
+    </main>
+</BaseLayout>
+
+<style>
+    main {
+        border-block: solid thin var(--color-dark);
+        height: 100%;
+        min-height: min(100vh, 500px);
+        padding-block: var(--space-s-l);
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    .card__image {
+        /*outline: solid red;*/
+        margin-inline: auto;
+        padding-block: var(--space-s);
+    }
+</style>
