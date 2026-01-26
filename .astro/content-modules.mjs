@@ -1,7 +1,7 @@
 
 export default new Map([
-["src/content/pages/articles.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Farticles.mdx&astroContentModuleFlag=true")],
 ["src/content/pages/about.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fabout.mdx&astroContentModuleFlag=true")],
+["src/content/pages/articles.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Farticles.mdx&astroContentModuleFlag=true")],
 ["src/content/pages/contact.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fcontact.mdx&astroContentModuleFlag=true")],
 ["src/content/pages/design.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fdesign.mdx&astroContentModuleFlag=true")],
 ["src/content/pages/home.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fpages%2Fhome.mdx&astroContentModuleFlag=true")],
