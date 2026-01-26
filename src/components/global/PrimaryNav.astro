@@ -1,0 +1,47 @@
+---
+import PrimaryNavItem from "./PrimaryNavItem.astro";
+
+const navItems = [
+    { link: "/", label: "Home" },
+    { link: "/projects", label: "Projects" },
+    { link: "/articles", label: "Articles" },
+    { link: "/about", label: "About" },
+];
+---
+
+<nav>
+    <div class="wrapper">
+        <PrimaryNavItem link={navItems[0].link} label={navItems[0].label} />
+        <ul>
+            {
+                navItems.slice(1).map((item) => (
+                    <li>
+                        <PrimaryNavItem link={item.link} label={item.label} />
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</nav>
+
+<style>
+    .wrapper {
+        padding-block: var(--space-s-l);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        opacity: 0.8;
+    }
+
+    ul {
+        display: flex;
+        gap: var(--space-3xs);
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav li {
+        list-style: none;
+    }
+</style>

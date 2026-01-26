@@ -1,0 +1,32 @@
+---
+interface Props {
+    link: string;
+    label: string;
+}
+
+const { link, label } = Astro.props;
+---
+
+<a aria-current={Astro.url.pathname === link ? "page" : "false"} href={link}>
+    {label}
+</a>
+
+<style>
+    a {
+        display: inline-block;
+        color: var(--color-dark);
+        padding: 2px 10px;
+        border: solid transparent;
+        text-decoration: none;
+        transition: border-color 0.2s ease-in-out;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        border-block-end: solid var(--color-dark);
+    }
+
+    a[aria-current="page"] {
+        border-color: var(--color-dark);
+    }
+</style>

@@ -1,0 +1,34 @@
+---
+const today = new Date();
+---
+
+<footer>
+    <div class="footer__wrapper wrapper">
+        <div class="footer__info">
+            <p>Kevin Franke &copy; {today.getFullYear()}</p>
+            <p class="small">Colorado Springs, CO</p>
+        </div>
+        <p class="dev font-header">
+            created with care by <a
+                href="https://crossinguard.dev"
+                target="_blank">crossinguard.dev</a
+            >
+        </p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        text-align: center;
+        padding-block: var(--space-s-l);
+    }
+
+    .footer__info {
+        display: grid;
+        gap: var(--space-3xs);
+
+        p {
+            margin: 0;
+        }
+    }
+</style>

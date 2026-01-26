@@ -1,20 +1,8 @@
 ---
-// import base layout and components
-import Layout from "../layouts/Layout.astro";
-import HomeHero from "../components/hero/HomeHero.astro";
+import { getEntry } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
 
-// import page content and metadata from 'src/content/pages'
-import { getEntry, render } from "astro:content";
-
-const entry = await getEntry("pages", "home");
-if (!entry) {
-	// Handle Error, for example:
-	throw new Error("Could not find page content");
-}
-const { Content, headings } = await render(entry);
+const home = await getEntry("pages", "home");
 ---
 
-<Layout title={entry.data.title} description={entry.data.description}>
-	<HomeHero />
-	<Content />
-</Layout>
+<PageLayout page={home} displayTitle={false} />

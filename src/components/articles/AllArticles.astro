@@ -1,0 +1,39 @@
+---
+import ArticleCard from "./ArticleCard.astro";
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("articles");
+---
+
+<ul class="articles">
+    {
+        articles.map((article) => (
+            <li>
+                <ArticleCard
+                    title={article.data.title}
+                    description={article.data.description}
+                    url={`/articles/${article.id}`}
+                    cover={article.data.cover}
+                    coverAlt={article.data.coverAlt}
+                    tags={article.data.tags}
+                    pubDate={article.data.pubDate}
+                    updatedDate={article.data.updatedDate}
+                />
+            </li>
+        ))
+    }
+</ul>
+
+<style>
+    .articles {
+        padding: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+        gap: var(--space-xs-s);
+    }
+
+    li {
+        display: flex;
+    }
+</style>

@@ -1,55 +1,8 @@
 ---
-// import base layout
-import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
 
-// import all content from articles content collection
-// edit articles at 'src/content/articles'
-// edit articles schema at 'tina/config.ts' and 'src/content.config.ts'
-import { getCollection } from "astro:content";
-const articles = await getCollection("articles");
-
-// define page metadata
-const title = "Articles";
-const description = "A collection of articles";
+const articles = await getEntry("pages", "articles");
 ---
 
-<Layout title={title} description={description}>
-    <h1>{title}</h1>
-    <ul class="grid">
-        {
-            articles.map((article) => (
-                <li>
-                    <a href={`/articles/${article.id}`}>
-                        <h3>{article.data.title}</h3>
-                        <p>{article.data.description}</p>
-                        <p>{article.data.tags}</p>
-                        <p>
-                            <em>
-                                {article.data.pubDate.toLocaleDateString(
-                                    "en-US",
-                                    {
-                                        month: "long",
-                                        day: "numeric",
-                                        year: "numeric",
-                                    },
-                                )}
-                            </em>
-                        </p>
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
-</Layout>
-
-<style>
-    ul {
-        padding: 0;
-    }
-    li {
-        list-style: none;
-    }
-    a {
-        text-decoration: none;
-    }
-</style>
+<PageLayout page={articles} />

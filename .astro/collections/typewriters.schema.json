@@ -1,0 +1,58 @@
+{
+  "$ref": "#/definitions/typewriters",
+  "definitions": {
+    "typewriters": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "manufacturer": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "year": {
+          "type": "number"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "typeface": {
+          "type": "string"
+        },
+        "pitch": {
+          "type": "string"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "coverAlt": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "manufacturer",
+        "model",
+        "description"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
