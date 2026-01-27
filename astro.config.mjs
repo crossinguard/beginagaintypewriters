@@ -11,4 +11,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://beginagaintypewriters.com",
   integrations: [react(), mdx(), sitemap()],
+  markdown: {
+    shikiConfig: {
+      theme: "github-light",
+    },
+  },
 });

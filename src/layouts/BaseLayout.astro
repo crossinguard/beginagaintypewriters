@@ -173,15 +173,24 @@ const { title, description } = Astro.props;
             }
 
             /* THEME COLORS */
-            --color-light: #f8f9fa;
-            --color-dark: #212529;
-            --green-100: #eaeee6;
-            --green-200: #d1e2cf;
-            --green-300: #7fbe80;
-            --green-400: #5ba248;
-            --green-500: #4d5f35;
-            --green-600: #2f3124;
-            --green-700: #25241f;
+
+            --base: #f8f9fa;
+            --color-light: var(--base);
+            --color-light-dark: var(--base-300);
+            --color-dark-light: var(--base-800);
+            --color-dark: var(--base-1000);
+
+            /* Perceptual scale - base */
+            --base-100: hsl(from var(--base) calc(h - 12) calc(s + 15) 95%);
+            --base-200: hsl(from var(--base) calc(h - 10) calc(s + 12) 85%);
+            --base-300: hsl(from var(--base) calc(h - 8) calc(s + 8) 75%);
+            --base-400: hsl(from var(--base) calc(h - 6) calc(s + 5) 65%);
+            --base-500: hsl(from var(--base) calc(h - 3) calc(s + 2) 55%);
+            --base-600: hsl(from var(--base) h s 45%);
+            --base-700: hsl(from var(--base) calc(h + 2) calc(s - 3) 35%);
+            --base-800: hsl(from var(--base) calc(h + 4) calc(s - 8) 25%);
+            --base-900: hsl(from var(--base) calc(h + 6) calc(s - 15) 18%);
+            --base-1000: hsl(from var(--base) calc(h + 8) calc(s - 25) 12%);
         }
     }
 
@@ -320,6 +329,13 @@ const { title, description } = Astro.props;
 
         dt::after {
             content: ": ";
+        }
+
+        pre {
+            padding: var(--space-s);
+            border: 2px solid var(--color-light-dark);
+            overflow-x: auto;
+            font-size: var(--size--1);
         }
     }
 

@@ -13,7 +13,11 @@ const navItems = [
 
 <nav>
     <div class="wrapper">
-        <PrimaryNavItem link={navItems[0].link} label={navItems[0].label} />
+        <PrimaryNavItem
+            link={navItems[0].link}
+            label={navItems[0].label}
+            home
+        />
         <ul>
             {
                 navItems.slice(1).map((item) => (
@@ -31,8 +35,9 @@ const navItems = [
         padding-block: var(--space-s-l);
         display: flex;
         flex-wrap: wrap;
+        gap: var(--space-3xs);
         justify-content: space-between;
-        opacity: 0.8;
+        /*opacity: 0.8;*/
     }
 
     ul {
