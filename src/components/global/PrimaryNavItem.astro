@@ -5,9 +5,12 @@ interface Props {
 }
 
 const { link, label } = Astro.props;
+
+const normalize = (path: string) => path.replace(/\/$/, "") || "/";
+const isCurrentPage = normalize(Astro.url.pathname) === normalize(link);
 ---
 
-<a aria-current={Astro.url.pathname === link ? "page" : "false"} href={link}>
+<a aria-current={isCurrentPage ? "page" : "false"} href={link}>
     {label}
 </a>
 
@@ -16,7 +19,7 @@ const { link, label } = Astro.props;
         display: inline-block;
         color: var(--color-dark);
         padding: 2px 10px;
-        border: solid transparent;
+        border: solid var(--color-light);
         text-decoration: none;
         transition: border-color 0.2s ease-in-out;
         text-transform: uppercase;
@@ -27,6 +30,6 @@ const { link, label } = Astro.props;
     }
 
     a[aria-current="page"] {
-        border-color: var(--color-dark);
+        border: solid var(--color-dark);
     }
 </style>
