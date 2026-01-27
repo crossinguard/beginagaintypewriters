@@ -19,17 +19,17 @@ const isCurrentPage = normalize(Astro.url.pathname) === normalize(link);
         display: inline-block;
         color: var(--color-dark);
         padding: 2px 10px;
-        border: solid var(--color-light);
+        border: 2px solid var(--color-light);
         text-decoration: none;
         transition: border-color 0.2s ease-in-out;
         text-transform: uppercase;
     }
 
     a:hover {
-        border-block-end: solid var(--color-dark);
+        border-block-end: 2px solid var(--color-dark);
     }
 
     a[aria-current="page"] {
-        border: solid var(--color-dark);
+        border: 2px solid var(--color-dark);
     }
 </style>
