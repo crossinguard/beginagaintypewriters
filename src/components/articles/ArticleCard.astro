@@ -1,38 +1,24 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import FormatDate from "@components/global/FormateDate.astro";
 
 interface Props {
-    title: string;
-    description: string;
-    url: string;
-    cover: string;
-    coverAlt: string;
+    article: CollectionEntry<"articles">;
     headingLevel?: 2 | 3 | 4;
-    tags?: string[];
-    pubDate: Date;
-    updatedDate?: Date;
 }
 
-const {
-    title,
-    description,
-    url,
-    cover,
-    coverAlt,
-    headingLevel = 2,
-    tags = [],
-    pubDate,
-    updatedDate,
-} = Astro.props;
-
+const { article, headingLevel = 2 } = Astro.props;
+const { title, description, cover, coverAlt, pubDate, updatedDate } =
+    article.data;
+const tags: string[] = article.data.tags;
 const HeadingTag = `h${headingLevel}` as "h2" | "h3" | "h4";
 ---
 
 <article class="card">
     <div class="card__content">
         <HeadingTag class="card__title">
-            <a href={url} class="card__link">
+            <a href={`/articles/${article.id}`} class="card__link">
                 {title}
             </a>
         </HeadingTag>

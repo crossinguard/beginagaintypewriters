@@ -24,7 +24,7 @@ const projects = defineCollection({
     typewriter: z.array(reference("typewriters")).optional(),
     status: z.enum(["planning", "in progress", "complete"]),
     completionDate: z.coerce.date(),
-    tags: z.array(z.string()).default([]).optional(),
+    tags: z.array(z.string()).default([]),
     relatedProjects: z.array(reference("projects")).optional(),
     relatedArticles: z.array(reference("articles")).optional(),
   }),
@@ -43,7 +43,7 @@ const typewriters = defineCollection({
     cover: z.string().optional(),
     coverAlt: z.string().optional(),
     description: z.string(),
-    tags: z.array(z.string()).default([]).optional(),
+    tags: z.array(z.string()).default([]),
   }),
 });
 
@@ -56,7 +56,7 @@ const articles = defineCollection({
     updatedDate: z.coerce.date().optional(),
     cover: z.string().default("/upload/johnny-briggs-b0zk-smIy0g-unsplash.jpg"),
     coverAlt: z.string().default("A close up of an old fashioned typewriter"),
-    tags: z.array(z.string()).default([]).optional(),
+    tags: z.array(z.string()).default([]),
     relatedProjects: z.array(reference("projects")).optional(),
     relatedArticles: z.array(reference("articles")).optional(),
     isDraft: z.boolean().default(false),

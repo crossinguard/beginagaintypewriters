@@ -1,24 +1,15 @@
 ---
 import ArticleCard from "./ArticleCard.astro";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-const articles = await getCollection("articles");
+const articles: CollectionEntry<"articles">[] = await getCollection("articles");
 ---
 
 <ul class="articles">
     {
         articles.map((article) => (
             <li>
-                <ArticleCard
-                    title={article.data.title}
-                    description={article.data.description}
-                    url={`/articles/${article.id}`}
-                    cover={article.data.cover}
-                    coverAlt={article.data.coverAlt}
-                    tags={article.data.tags}
-                    pubDate={article.data.pubDate}
-                    updatedDate={article.data.updatedDate}
-                />
+                <ArticleCard article={article} />
             </li>
         ))
     }

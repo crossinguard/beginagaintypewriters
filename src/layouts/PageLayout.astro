@@ -2,7 +2,6 @@
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
-import SkipLink from "@components/global/SkipLink.astro";
 
 interface Props {
     page: CollectionEntry<"pages">;
@@ -15,19 +14,16 @@ const { Content } = await render(page);
 ---
 
 <BaseLayout title={title} description={description}>
-    <main id="main-content" class="wrapper">
-        <SkipLink />
+    <div class="wrapper">
         {displayTitle && <h1>{title}</h1>}
         <Content />
-    </main>
+    </div>
 </BaseLayout>
 
 <style>
-    main {
+    .wrapper {
         border-block: solid 2px var(--color-dark-light);
-        height: 100%;
-        min-height: min(100vh, 500px);
-        padding-block: var(--space-s-l);
+        padding-block: var(--space-l);
     }
 
     h1 {

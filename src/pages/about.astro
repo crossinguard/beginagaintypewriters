@@ -1,8 +1,8 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntryOrThrow } from "@utils/content";
 import PageLayout from "../layouts/PageLayout.astro";
 
-const about = await getEntry("pages", "about");
+const about = await getEntryOrThrow("pages", "about");
 ---
 
 <PageLayout page={about} />
