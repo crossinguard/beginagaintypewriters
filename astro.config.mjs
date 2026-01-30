@@ -16,4 +16,7 @@ export default defineConfig({
       theme: "github-light",
     },
   },
+  redirects: {
+    "/admin": "/admin/index.html",
+  },
 });

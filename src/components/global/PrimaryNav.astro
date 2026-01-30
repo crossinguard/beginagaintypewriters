@@ -1,31 +1,36 @@
 ---
 import PrimaryNavItem from "./PrimaryNavItem.astro";
+import { getSiteConfig } from "@utils/config";
 
-const navItems = [
-    { link: "/", label: "Begin Again" },
-    { link: "/typewriters", label: "Typewriters" },
-    { link: "/projects", label: "Projects" },
-    { link: "/articles", label: "Articles" },
-    { link: "/about", label: "About" },
-    { link: "/contact", label: "Contact" },
-];
+const { nav } = getSiteConfig();
+const homeItem = nav.find((item) => item.isHome);
+const navItems = nav.filter((item) => !item.isHome);
+
+// const navItems = [
+//     { link: "/", label: "Begin Again" },
+//     { link: "/typewriters", label: "Typewriters" },
+//     { link: "/projects", label: "Projects" },
+//     { link: "/articles", label: "Articles" },
+//     { link: "/about", label: "About" },
+//     { link: "/contact", label: "Contact" },
+// ];
 ---
 
 <nav>
     <div class="wrapper">
-        <PrimaryNavItem
-            link={navItems[0].link}
-            label={navItems[0].label}
-            home
-        />
+        {homeItem && (
+            <PrimaryNavItem
+                link={homeItem.link}
+                label={homeItem.label}
+                home
+            />
+        )}
         <ul>
-            {
-                navItems.slice(1).map((item) => (
-                    <li>
-                        <PrimaryNavItem link={item.link} label={item.label} />
-                    </li>
-                ))
-            }
+            {navItems.map((item) => (
+                <li>
+                    <PrimaryNavItem link={item.link} label={item.label} />
+                </li>
+            ))}
         </ul>
     </div>
 </nav>

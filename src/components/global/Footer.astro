@@ -1,12 +1,15 @@
 ---
+import { getSiteConfig } from "@utils/config";
+
 const today = new Date();
+const { siteOwner, location } = getSiteConfig();
 ---
 
 <footer>
     <div class="footer__wrapper wrapper">
         <div class="footer__info">
-            <p>Kevin Franke &copy; {today.getFullYear()}</p>
-            <p class="small">Colorado Springs, CO</p>
+            <p>{siteOwner} &copy; {today.getFullYear()}</p>
+            {location && <p class="small">{location}</p>}
         </div>
         <p class="dev font-header">
             created with care by <a

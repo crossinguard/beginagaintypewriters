@@ -2,6 +2,7 @@
 import SkipLink from "@components/global/SkipLink.astro";
 import PrimaryNav from "@components/global/PrimaryNav.astro";
 import Footer from "@components/global/Footer.astro";
+import { getSiteConfig } from "@utils/config";
 
 interface Props {
     title: string;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const { siteTitle } = getSiteConfig();
 ---
 
 <html lang="en">
@@ -44,8 +46,8 @@ const { title, description } = Astro.props;
         />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{`${title} | Begin Again Typewriters`}</title>
-        <meta name="title" content={`${title} | Begin Again Typewriters`} />
+        <title>{`${title} | ${siteTitle}`}</title>
+        <meta name="title" content={`${title} | ${siteTitle}`} />
         <meta name="description" content={description} />
         <link rel="sitemap" href="/sitemap-index.xml" />
     </head>

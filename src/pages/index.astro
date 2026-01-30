@@ -1,8 +1,11 @@
 ---
 import { getEntryOrThrow } from "@utils/content";
 import PageLayout from "../layouts/PageLayout.astro";
+import Hero from "@components/home/Hero.astro";
 
 const home = await getEntryOrThrow("pages", "home");
 ---
 
-<PageLayout page={home} displayTitle={false} />
+<PageLayout page={home} displayTitle={false}>
+    <Hero slot="before-content" />
+</PageLayout>
