@@ -1,0 +1,37 @@
+---
+import { getSiteConfig } from "@utils/config";
+
+const today = new Date();
+const { siteOwner, location } = getSiteConfig();
+---
+
+<footer>
+  <div class="footer__wrapper wrapper">
+    <div class="footer__info">
+      <p>{siteOwner} &copy; {today.getFullYear()}</p>
+      {location && <p class="small">{location}</p>}
+    </div>
+    <p class="dev font-header">
+      created with care by <a href="https://crossinguard.dev" target="_blank"
+        >crossinguard.dev</a
+      >
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    text-align: center;
+    padding-block: var(--space-s-l);
+    color: var(--color-dark-light);
+  }
+
+  .footer__info {
+    display: grid;
+    gap: var(--space-3xs);
+
+    p {
+      margin: 0;
+    }
+  }
+</style>

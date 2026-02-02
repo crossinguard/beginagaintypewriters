@@ -1,0 +1,89 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import BaseLayout from "./BaseLayout.astro";
+import FormatDate from "@components/global/FormatDate.astro";
+
+interface Props {
+  article: CollectionEntry<"articles">;
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<BaseLayout title={article.data.title} description={article.data.description}>
+  <div class="wrapper">
+    <header>
+      <h1>{article.data.title}</h1>
+      <small>
+        {article.data.updatedDate ? "updated" : "published"}
+        <FormatDate date={article.data.updatedDate || article.data.pubDate} />
+      </small>
+      {
+        article.data.tags.length > 0 && (
+          <ul class="tags">
+            {article.data.tags.map((tag) => (
+              <li class="tag">#{tag}</li>
+            ))}
+          </ul>
+        )
+      }
+      <p class="description">{article.data.description}</p>
+      <div class="media">
+        {
+          article.data.cover && (
+            <Image
+              src={article.data.cover}
+              alt={article.data.coverAlt}
+              class="image"
+              height={360}
+              width={640}
+            />
+          )
+        }
+      </div>
+    </header>
+    <Content />
+  </div>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    border-block: solid 2px var(--color-dark-light);
+    padding-block: var(--space-s-l);
+  }
+
+  header {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  .image {
+    margin-inline: auto;
+    margin-block: var(--space-s);
+    border: 2px solid var(--color-light-dark);
+  }
+
+  .tags {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-3xs-2xs);
+    /*margin-block-start: auto;*/
+  }
+
+  .tag {
+    font-size: var(--size--1);
+    color: var(--color-light);
+    background-color: var(--color-dark-light);
+    padding: var(--space-3xs);
+  }
+</style>

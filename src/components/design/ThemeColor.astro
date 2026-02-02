@@ -1,0 +1,67 @@
+---
+const colorsTheme = [
+  { name: "light", var: "--color-light" },
+  { name: "light-dark", var: "--color-light-dark" },
+  { name: "dark-light", var: "--color-dark-light" },
+  { name: "dark", var: "--color-dark" },
+];
+
+const colorsBase = [
+  { name: "base-100", var: "--base-100" },
+  { name: "base-200", var: "--base-200" },
+  { name: "base-300", var: "--base-300" },
+  { name: "base-400", var: "--base-400" },
+  { name: "base-500", var: "--base-500" },
+  { name: "base-600", var: "--base-600" },
+  { name: "base-700", var: "--base-700" },
+  { name: "base-800", var: "--base-800" },
+  { name: "base-900", var: "--base-900" },
+  { name: "base-1000", var: "--base-1000" },
+];
+---
+
+<div class="color-grid">
+  {
+    colorsTheme.map((color) => (
+      <div class="color-swatch">
+        <div class="swatch" style={`background-color: var(${color.var});`} />
+        <code>{color.name}</code>
+      </div>
+    ))
+  }
+</div>
+<div class="color-grid">
+  {
+    colorsBase.map((color) => (
+      <div class="color-swatch">
+        <div class="swatch" style={`background-color: var(${color.var});`} />
+        <code>{color.name}</code>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-s);
+    padding-block: var(--space-m);
+  }
+
+  .color-swatch {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+  }
+
+  .swatch {
+    height: 80px;
+    border-radius: 4px;
+    border: 1px solid var(--color-dark);
+  }
+
+  code {
+    font-size: var(--size--1);
+  }
+</style>

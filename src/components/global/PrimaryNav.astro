@@ -1,0 +1,49 @@
+---
+import PrimaryNavItem from "./PrimaryNavItem.astro";
+import { getSiteConfig } from "@utils/config";
+
+const { nav } = getSiteConfig();
+const homeItem = nav.find((item) => item.isHome);
+const navItems = nav.filter((item) => !item.isHome);
+---
+
+<nav>
+  <div class="wrapper">
+    {
+      homeItem && (
+        <PrimaryNavItem link={homeItem.link} label={homeItem.label} home />
+      )
+    }
+    <ul>
+      {
+        navItems.map((item) => (
+          <li>
+            <PrimaryNavItem link={item.link} label={item.label} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .wrapper {
+    padding-block: var(--space-s-l);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3xs);
+    justify-content: space-between;
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-3xs);
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    list-style: none;
+  }
+</style>

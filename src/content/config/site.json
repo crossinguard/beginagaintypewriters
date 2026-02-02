@@ -1,0 +1,39 @@
+{
+  "contactEmail": "beginagaintypewriters@gmail.com",
+  "siteTitle": "Begin Again Typewriters",
+  "siteDescription": "Typewriter repair, restoration, and information.",
+  "siteOwner": "Kevin Franke",
+  "location": "Colorado Springs, CO",
+  "nav": [
+    {
+      "label": "Begin Again",
+      "link": "/",
+      "isHome": true
+    },
+    {
+      "label": "Typewriters",
+      "link": "/typewriters",
+      "isHome": false
+    },
+    {
+      "label": "Projects",
+      "link": "/projects",
+      "isHome": false
+    },
+    {
+      "label": "Articles",
+      "link": "/articles",
+      "isHome": false
+    },
+    {
+      "label": "About",
+      "link": "/about",
+      "isHome": false
+    },
+    {
+      "label": "Contact",
+      "link": "/contact",
+      "isHome": false
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  page: CollectionEntry<"pages">;
+  displayTitle?: boolean;
+}
+
+const { page, displayTitle = true } = Astro.props;
+const { title, description } = page.data;
+const { Content } = await render(page);
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="wrapper">
+    {displayTitle && <h1>{title}</h1>}
+    <slot name="before-content" />
+    <Content />
+    <slot name="after-content" />
+  </div>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    border-block: solid 2px var(--color-dark-light);
+    padding-block: var(--space-l);
+  }
+
+  h1 {
+    margin: 0;
+  }
+</style>

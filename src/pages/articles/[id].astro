@@ -1,32 +1,18 @@
 ---
-// import base layout
-import Layout from "../../layouts/Layout.astro";
+import ArticleLayout from "@layouts/ArticleLayout.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 
-// import all content from articles content collection
-import { getCollection, render } from "astro:content";
-
-// generate a new path for every article
 export async function getStaticPaths() {
     const articles = await getCollection("articles");
-    return articles.map((article) => ({
+    return articles.map((article: CollectionEntry<"articles">) => ({
         params: { id: article.id },
         props: { article },
     }));
 }
-// generate article page from props
 const { article } = Astro.props;
 const { Content } = await render(article);
 ---
 
-<Layout title={article.data.title} description={article.data.description}>
-    <h1>{article.data.title}</h1>
-    <a href="/articles" class="back">Back to all articles</a>
+<ArticleLayout article={article}>
     <Content />
-</Layout>
-
-<style>
-    .back {
-        display: block;
-        padding-block: var(--space-xs);
-    }
-</style>
+</ArticleLayout>

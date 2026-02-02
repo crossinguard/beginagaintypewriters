@@ -1,0 +1,23 @@
+---
+import { getSiteConfig } from "@utils/config";
+
+interface Props {
+  title?: string;
+  content?: string;
+}
+
+const { siteTitle, siteDescription } = getSiteConfig();
+const { title = siteTitle, content = siteDescription } = Astro.props;
+---
+
+<div class="hero">
+  <h1 class="hero__title">{title}</h1>
+  <p class="hero__content">{content}</p>
+</div>
+
+<style>
+  .hero {
+    text-align: center;
+    padding-block: var(--space-l-xl);
+  }
+</style>
