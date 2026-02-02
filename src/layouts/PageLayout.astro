@@ -4,8 +4,8 @@ import { render } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-    page: CollectionEntry<"pages">;
-    displayTitle?: boolean;
+  page: CollectionEntry<"pages">;
+  displayTitle?: boolean;
 }
 
 const { page, displayTitle = true } = Astro.props;
@@ -14,21 +14,21 @@ const { Content } = await render(page);
 ---
 
 <BaseLayout title={title} description={description}>
-    <div class="wrapper">
-        {displayTitle && <h1>{title}</h1>}
-        <slot name="before-content" />
-        <Content />
-        <slot name="after-content" />
-    </div>
+  <div class="wrapper">
+    {displayTitle && <h1>{title}</h1>}
+    <slot name="before-content" />
+    <Content />
+    <slot name="after-content" />
+  </div>
 </BaseLayout>
 
 <style>
-    .wrapper {
-        border-block: solid 2px var(--color-dark-light);
-        padding-block: var(--space-l);
-    }
+  .wrapper {
+    border-block: solid 2px var(--color-dark-light);
+    padding-block: var(--space-l);
+  }
 
-    h1 {
-        margin: 0;
-    }
+  h1 {
+    margin: 0;
+  }
 </style>

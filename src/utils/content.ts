@@ -1,7 +1,7 @@
 import { getEntry } from "astro:content";
 
 export async function getEntryOrThrow<
-  C extends "pages" | "articles" | "projects" | "typewriters"
+  C extends "pages" | "articles" | "projects" | "typewriters",
 >(collection: C, id: string) {
   const entry = await getEntry(collection, id);
   if (!entry) {

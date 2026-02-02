@@ -1,17 +1,17 @@
 ---
 interface Props {
-    date: Date;
+  date: Date;
 }
 
 function formatDate(date: Date): string {
-    const day = date.getUTCDate();
-    const month = date.toLocaleDateString("en-US", {
-        month: "short",
-        timeZone: "UTC",
-    });
-    const year = date.getUTCFullYear();
+  const day = date.getUTCDate();
+  const month = date.toLocaleDateString("en-US", {
+    month: "short",
+    timeZone: "UTC",
+  });
+  const year = date.getUTCFullYear();
 
-    return `${day} ${month} ${year}`;
+  return `${day} ${month} ${year}`;
 }
 
 const { date } = Astro.props;
@@ -19,5 +19,5 @@ const isoDate = date.toISOString().split("T")[0];
 ---
 
 <time datetime={isoDate}>
-    {formatDate(date)}
+  {formatDate(date)}
 </time>
