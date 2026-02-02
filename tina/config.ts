@@ -32,4 +32,12 @@ export default defineConfig({
   schema: {
     collections: [GlobalConfigCollection, PagesCollection, ArticlesCollection],
   },
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_SEARCH_TOKEN,
+      stopwordLanguages: ["eng"],
+    },
+    indexBatchSize: 100,
+    maxSearchIndexFieldLength: 100,
+  },
 });
